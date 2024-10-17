@@ -1,6 +1,6 @@
 package com.ra.base_spring_mvc.config;
 
-import com.ra.model.entity.User;
+import com.ra.base_spring_mvc.model.entity.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
