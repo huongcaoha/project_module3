@@ -53,6 +53,26 @@ public class ProductDetailDAOImpl implements ProductDetailDAO{
     }
 
     @Override
+<<<<<<< HEAD
+    public ProductDetail findByColorIdSizeId(int colorId, int sizeId) {
+        Session session= sessionFactory.openSession();
+        ProductDetail productDetail=new ProductDetail();
+        try {
+            productDetail= (ProductDetail) session.createQuery("from ProductDetail pd join Color c on pd.color.id==c.id join Size sz on pd.size.id==sz.id where pd.color.id==:_colorId and pd.size.id==:_sizeId")
+                    .setParameter("_colorId",colorId)
+                    .setParameter("_sizeId",sizeId)
+                    .getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return productDetail;
+    }
+
+    @Override
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
     public ProductDetail findById(int id) {
         Session session= sessionFactory.openSession();
         ProductDetail productDetail=new ProductDetail();

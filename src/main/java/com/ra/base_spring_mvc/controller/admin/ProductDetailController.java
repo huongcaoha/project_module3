@@ -3,6 +3,10 @@ package com.ra.base_spring_mvc.controller.admin;
 import com.ra.base_spring_mvc.model.entity.Product;
 import com.ra.base_spring_mvc.model.entity.ProductDetail;
 import com.ra.base_spring_mvc.model.entity.dto.ProductDetailDto;
+<<<<<<< HEAD
+import com.ra.base_spring_mvc.model.entity.dto.ProductDto;
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 import com.ra.base_spring_mvc.model.service.product.ProductService;
 import com.ra.base_spring_mvc.model.service.productdetail.ProductDetailService;
 import com.ra.base_spring_mvc.model.service.productdetail.color.ColorService;
@@ -17,7 +21,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+<<<<<<< HEAD
+@RequestMapping("/admin/product-detail")
+=======
 @RequestMapping("/product-detail")
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 public class ProductDetailController {
     @Autowired
     private ProductDetailService productDetailService;
@@ -54,7 +62,11 @@ public class ProductDetailController {
         }
         model.addAttribute("product",productService.findById(id));
         productDetailService.createProduct(id,productDetailDto);
+<<<<<<< HEAD
+        return "redirect:/admin/product-detail/"+id;
+=======
         return "redirect:/product-detail/"+id;
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
     }
 
     @GetMapping("/edit/{id}")
@@ -66,10 +78,17 @@ public class ProductDetailController {
     }
 
     @PostMapping("/edit/{id}")
+<<<<<<< HEAD
+    public String update(@PathVariable int id, @ModelAttribute("product") ProductDto productDto) {
+
+        if (productService.updateProduct(productDto)) {
+            return "redirect:/admin/product-detail";
+=======
     public String update(@PathVariable int id, @ModelAttribute("product") Product product) {
 
         if (productService.updateProduct(product)) {
             return "redirect:/product";
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
         }
         return "admin/product/update" + id;
     }

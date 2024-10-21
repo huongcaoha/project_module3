@@ -39,7 +39,11 @@
                         <h4 class="title">Form With Advance Form Elements</h4>
                     </div>
                     <div class="box-body">
+<<<<<<< HEAD
+                        <form th:object="${products}" method="post" action="" enctype="multipart/form-data">
+=======
                         <form th:object="${product}" method="post" action="" enctype="multipart/form-data">
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                             <div class="row mbn-20">
 
                                 <div class="col-12 mb-20">
@@ -53,6 +57,13 @@
                                         <option th:each="c : ${categories}" th:text="${c.categoryName}" th:value="${c.id}"></option>
                                     </select>
                                 </div>
+<<<<<<< HEAD
+                                <div class="col-12 mb-20">
+                                    <label for="formLayoutFile2">Upload a File</label>
+                                    <input type="file" id="formLayoutFile2" class="dropify" th:field="*{fileImageProduct}">
+                                </div>
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 <!--                                <div class="col-lg-4 mb-20">-->
 <!--                                    <label for="formLayoutState23">Status</label>-->
 <!--                                    <select id="formLayoutState23" class="form-control select2" th:field="*{status.id}">-->

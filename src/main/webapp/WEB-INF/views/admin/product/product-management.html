@@ -35,6 +35,40 @@
 
       <!--Edit Rows Start-->
       <div class="col-12 mb-30">
+<<<<<<< HEAD
+        <!-- Side Header Toggle & Search Start -->
+        <div class="col-auto">
+          <div class="row align-items-center">
+
+
+            <!--Header Search-->
+            <div class="col-auto" style="display: flex">
+              <div style="margin-right: 45vw;">
+                <a class="btn btn-danger" th:href="@{/admin/product/add}">Add</a>
+              </div>
+
+              <div class="header-search" >
+                <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
+                <div class="header-search-form" >
+                  <form th:action="@{/admin/product/search}" method="get">
+                    <input type="text" name="search" placeholder="Search Here" >
+                    <button type="submit"><i class="zmdi zmdi-search"></i></button>
+                  </form>
+                  <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-20" style="display: flex;width: 200px">
+
+                <a th:href="@{/admin/product/sort}" class="btn badge-outline">Sắp xếp theo tên </a>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- Side Header Toggle & Search End -->
+        <div class="box">
+
+=======
         <div class="box">
           <!-- Side Header Toggle & Search Start -->
           <div class="col-auto">
@@ -61,6 +95,7 @@
 
             </div>
           </div><!-- Side Header Toggle & Search End -->
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
           <div class="box-body">
 
             <table class="table footable-editing" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
@@ -69,27 +104,134 @@
                 <th >STT</th>
                 <th data-name="name">Name</th>
                 <th data-breakpoints="xs" >Category</th>
+<<<<<<< HEAD
+                <th data-breakpoints="xs" >Image</th>
+                <th data-breakpoints="xs" >Description</th>
+=======
                 <th data-breakpoints="xs" >Description</th>
 
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                 <th colspan="2" >Action</th>
               </tr>
               </thead>
               <tbody>
               <tr th:each="p,loop : ${products}">
                 <td  th:text="${page * size + loop.count}"></td>
+<<<<<<< HEAD
+                <td ><a th:href="@{'/admin/product-detail/'+${p.id}}" th:text="${p.productName}"></a></td>
+                <td ><img th:src="'/uploads/'+${p.image}" width="50px" height="50px"></td>
+=======
                 <td ><a th:href="@{'/product-detail/'+${p.id}}" th:text="${p.productName}"></a></td>
 
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                 <td th:text="${p.category.categoryName }"></td>
                 <td th:text="${p.description}"></td>
 
                 <td>
+<<<<<<< HEAD
+                  <a class="btn btn-warning" th:href="@{'/admin/product/edit/'+${p.id}}">Edit</a>
+                  <a class="btn btn-danger" th:href="@{'/admin/product/delete/'+${p.id}}">Delete</a>
+=======
                   <a class="btn btn-warning" th:href="@{'product/edit/'+${p.id}}">Edit</a>
                   <a class="btn btn-danger" th:href="@{'product/delete/'+${p.id}}">Delete</a>
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                 </td>
               </tr>
 
               </tbody>
             </table>
+<<<<<<< HEAD
+            <div th:if="${isSort!=null}">
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li class="page-item" th:classappend="${page <= 1 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page > 1 ? '/admin/product/sort?page=' + (page - 1) : '#'}" aria-label="Previous"
+                       th:attr="aria-disabled=${page <= 1 ? 'true' : 'false'}"
+                       th:classappend="${page <= 1 ? 'disabled' : ''}">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+
+                  <li class="page-item" th:each="i : ${#numbers.sequence(1,totalPage)}" th:classappend="${ page + 1 == i ? 'active' : ' '}">
+                    <a class="page-link" th:href="@{'/admin/product/sort?page=' + ${i - 1}}" th:text="${i}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${page >= totalPage ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page < totalPage ? '/admin/product/sort?page=' + (page + 1) : '#'}"
+                       th:attr="aria-disabled=${page >= totalPage ? 'true' : 'false'}"
+                       th:classappend="${page >= totalPage ? 'disabled' : ''}"
+                       aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+
+
+                </ul>
+              </nav>
+            </div>
+            <div th:if="${isSearch!=null}">
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li class="page-item" th:classappend="${page <= 0 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page > 0} ? '/admin/product/search?search='+${isSearch} +'&page=' + ${page - 1} : '#'" aria-label="Previous"
+                       th:attr="aria-disabled=${page <= 0 ? 'true' : 'false'}"
+                       th:classappend="${page <= 0 ? 'disabled' : ''}">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+
+                  <li class="page-item" th:each="i : ${#numbers.sequence(1,totalPage)}" th:classappend="${ page+1 == i ? 'active' : ' '}">
+                    <a class="page-link" th:href="@{'/admin/product/search?search='+${isSearch} +'&page=' + ${i - 1}}" th:text="${i}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${page >= totalPage - 1 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page < totalPage} ? '/admin/product/search?search='+${isSearch} +'&page=' + ${page + 1} : '#'"
+                       th:attr="aria-disabled=${page >= totalPage - 1 ? 'true' : 'false'}"
+                       th:classappend="${page >= totalPage - 1 ? 'disabled' : ''}"
+                       aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+
+
+                </ul>
+              </nav>
+            </div>
+            <div th:if="${isProduct!=null}">
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li class="page-item" th:classappend="${page <= 0 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page > 0 ? '/admin/product?page=' + (page - 1) : '#'}" aria-label="Previous"
+                       th:attr="aria-disabled=${page <= 0 ? 'true' : 'false'}"
+                       th:classappend="${page <= 0 ? 'disabled' : ''}">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+
+                  <li class="page-item" th:each="i : ${#numbers.sequence(1,totalPage)}" th:classappend="${ page+1 == i ? 'active' : ' '}">
+                    <a class="page-link" th:href="@{'/admin/product?page=' + ${i - 1}}" th:text="${i}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${page >= totalPage - 1 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="${page < totalPage ? '/admin/product?page=' + (page + 1) : '#'}"
+                       th:attr="aria-disabled=${page >= totalPage -1 ? 'true' : 'false'}"
+                       th:classappend="${page >= totalPage - 1 ? 'disabled' : ''}"
+                       aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+
+
+                </ul>
+              </nav>
+            </div>
+=======
 
             <nav aria-label="Page navigation">
               <ul class="pagination">
@@ -119,6 +261,7 @@
 
               </ul>
             </nav>
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
             <div class="modal fade" id="footable-editor-modal">
               <div class="modal-dialog" role="document">
                 <form class="modal-content form-horizontal" id="footable-editor">

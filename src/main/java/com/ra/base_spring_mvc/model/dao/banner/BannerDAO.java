@@ -11,5 +11,8 @@ public interface BannerDAO {
     boolean updateBanner(Banner banner);
     boolean deleteBanner(Banner banner);
     Banner findById(int id);
+<<<<<<< HEAD
+=======
     Banner getBannerByLocation(String location);
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 
 @RequestMapping("/")
+<<<<<<< HEAD
+
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 public class HomeController {
     @Autowired
     private BannerService bannerService;

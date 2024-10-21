@@ -62,11 +62,19 @@ public class BannerController {
 
     @PostMapping("/edit/{id}")
     public String update(@PathVariable int id, Model model , @ModelAttribute("banner") BannerDto bannerDto , RedirectAttributes redirectAttributes){
+<<<<<<< HEAD
+        Banner newBanner = bannerService.findById(id);
+        Banner banner = bannerService.converseBannerDto(bannerDto);
+        banner.setId(id);
+        if(banner.getImage() == null){
+            banner.setImage(newBanner.getImage());
+=======
         Banner oldBanner = bannerService.findById(id);
         Banner banner = bannerService.converseBannerDto(bannerDto);
         banner.setId(id);
         if(banner.getImage() == null){
             banner.setImage(oldBanner.getImage());
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
         }
         if(bannerService.updateBanner(banner)){
             return "redirect:/banner";

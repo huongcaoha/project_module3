@@ -20,4 +20,11 @@ public interface ProductDAO {
     void deleteProduct(int id);
 
     List<Product> searchProduct(String productName,int page, int size);
+<<<<<<< HEAD
+
+    long totalSearchElement(String productName);
+
+    List<Product> sortProduct(int page, int size);
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }
