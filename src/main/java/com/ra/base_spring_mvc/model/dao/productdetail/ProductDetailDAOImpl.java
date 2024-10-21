@@ -53,6 +53,7 @@ public class ProductDetailDAOImpl implements ProductDetailDAO{
     }
 
     @Override
+<<<<<<< HEAD
     public ProductDetail findByColorIdSizeId(int colorId, int sizeId) {
         Session session= sessionFactory.openSession();
         ProductDetail productDetail=new ProductDetail();
@@ -70,6 +71,8 @@ public class ProductDetailDAOImpl implements ProductDetailDAO{
     }
 
     @Override
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
     public ProductDetail findById(int id) {
         Session session= sessionFactory.openSession();
         ProductDetail productDetail=new ProductDetail();

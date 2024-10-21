@@ -16,9 +16,12 @@ public class ColorServiceImpl implements ColorService {
     public List<Color> findAll() {
         return colorDAO.findAll();
     }
+<<<<<<< HEAD
 
     @Override
     public Color findById(int id) {
         return colorDAO.findById(id);
     }
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }

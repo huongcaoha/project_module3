@@ -1,9 +1,10 @@
 package com.ra.base_spring_mvc.model.entity.dto;
 
 import com.ra.base_spring_mvc.validator.category.CategoryNameUnique;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import org.springframework.web.multipart.MultipartFile;
+
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDto {

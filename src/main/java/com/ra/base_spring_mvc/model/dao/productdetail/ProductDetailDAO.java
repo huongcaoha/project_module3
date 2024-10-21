@@ -20,6 +20,9 @@ public interface ProductDetailDAO {
 
     void deleteProduct(int id);
 
+<<<<<<< HEAD
     ProductDetail findByColorIdSizeId(int colorId,int sizeId);
 
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }

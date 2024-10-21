@@ -42,9 +42,14 @@
                         <form th:object="${productDetailsDto}" method="post" action="#" enctype="multipart/form-data">
                             <div class="row mbn-20">
                                 <div class="col-12 mb-20">
+<<<<<<< HEAD
                                     <label >Product</label>
                                     <p  th:text="${product.productName}" th:field="*{productId}" ></p>
 
+=======
+                                    <label for="formLayoutUsername2">Product</label>
+                                    <input type="text" readonly id="formLayoutUsername2" class="form-control"  th:text="${product.productName}" th:field="*{productId}"  >
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                                 </div>
 
 

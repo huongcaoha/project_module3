@@ -53,11 +53,14 @@
                                         <option th:each="c : ${categories}" th:text="${c.categoryName}" th:value="${c.id}"></option>
                                     </select>
                                 </div>
+<<<<<<< HEAD
                                 <div class="form-group">
                                     <label class="form-label">Image</label>
                                     <input type="file" class="form-control" th:field="*{fileImageProduct}" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                                     <img th:src="@{'/uploads/' + ${image}}" width="150px" id="output" >
                                 </div>
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                                 <!--                                <div class="col-lg-4 mb-20">-->
                                 <!--                                    <label for="formLayoutState23">Status</label>-->
                                 <!--                                    <select id="formLayoutState23" class="form-control select2" th:field="*{status.id}">-->

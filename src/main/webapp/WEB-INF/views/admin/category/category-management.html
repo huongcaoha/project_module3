@@ -51,7 +51,11 @@
 
               <!--Header Search-->
               <div class="col-auto">
+<<<<<<< HEAD
                 <a class="btn btn-danger" th:href="@{admin/category/add}">Add</a>
+=======
+                <a class="btn btn-danger" th:href="@{category/add}">Add</a>
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                 <div class="header-search">
 
                   <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
@@ -90,8 +94,13 @@
                 <td ><img th:src="'/uploads/'+${c.image}" width="50px" height="50px"></td>
                 <td th:text="${c.status ? 'Active':'Inactive'}"></td>
                 <td>
+<<<<<<< HEAD
                   <a class="btn btn-warning" th:href="@{'/admin/category/edit/'+${c.id}}">Edit</a>
                   <a class="btn btn-danger" th:href="@{'/admin/category/delete/'+${c.id}}">Delete</a>
+=======
+                  <a class="btn btn-warning" th:href="@{'category/edit/'+${c.id}}">Edit</a>
+                  <a class="btn btn-danger" th:href="@{'category/delete/'+${c.id}}">Delete</a>
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
                 </td>
               </tr>
 

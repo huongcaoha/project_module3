@@ -1,7 +1,10 @@
 package com.ra.base_spring_mvc.model.dao.productdetail.size;
 
 import com.ra.base_spring_mvc.model.entity.Color;
+<<<<<<< HEAD
 import com.ra.base_spring_mvc.model.entity.ProductDetail;
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 import com.ra.base_spring_mvc.model.entity.Size;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,6 +33,7 @@ public class SizeDAOImpl implements SizeDAO{
         }
         return sizes;
     }
+<<<<<<< HEAD
 
     @Override
     public Size findById(int id) {
@@ -44,4 +48,6 @@ public class SizeDAOImpl implements SizeDAO{
         }
         return size;
     }
+=======
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }

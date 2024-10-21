@@ -100,4 +100,18 @@ public class BannerDAOImpl implements BannerDAO{
         }
         return null ;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public Banner getBannerByLocation(String location) {
+        try (Session session = sessionFactory.openSession()){
+           return session.createQuery("from Banner b where b.location = :_location",Banner.class)
+                    .setParameter("_location",location).getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null ;
+    }
+>>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 }
