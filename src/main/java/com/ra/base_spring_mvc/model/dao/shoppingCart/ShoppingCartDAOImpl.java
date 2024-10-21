@@ -15,7 +15,7 @@ public class ShoppingCartDAOImpl implements ShoppingCartDao{
     @Autowired
     private SessionFactory sessionFactory;
     @Override
-    public List<ShoppingCart> getListShoppingCart(long id_user) {
+    public List<ShoppingCart> getListShoppingCart(int id_user) {
         List<ShoppingCart> shoppingCarts = new ArrayList<>();
         try (Session session = sessionFactory.openSession()){
            shoppingCarts = session.createQuery("from ShoppingCart", ShoppingCart.class)

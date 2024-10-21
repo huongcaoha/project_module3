@@ -11,7 +11,7 @@ import java.io.IOException;
 public class FileService {
     public String uploadImage(MultipartFile multipartFile){
 
-        String uploadPath = "C:\\Users\\ASUS\\Desktop\\project\\ecommerce\\src\\main\\webapp\\uploads\\";
+        String uploadPath = "C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\project_module3\\src\\main\\webapp\\uploads\\";
         System.out.println(uploadPath);
         File file = new File(uploadPath);
         if(!file.exists()){

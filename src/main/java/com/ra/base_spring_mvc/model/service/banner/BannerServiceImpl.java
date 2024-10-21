@@ -4,10 +4,9 @@ import com.ra.base_spring_mvc.common.MethodCommon;
 import com.ra.base_spring_mvc.model.dao.banner.BannerDAO;
 import com.ra.base_spring_mvc.model.entity.Banner;
 import com.ra.base_spring_mvc.model.entity.dto.BannerDto;
-<<<<<<< HEAD
-=======
+
 import org.hibernate.Session;
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,10 +51,9 @@ public class BannerServiceImpl implements BannerService{
         Banner banner = new Banner();
         banner.setBannerName(bannerDto.getBannerName());
         banner.setLocation(bannerDto.getLocation());
-<<<<<<< HEAD
-=======
+
         banner.setContent(bannerDto.getContent());
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
         if(bannerDto.getImage().getSize() > 0){
             banner.setImage(MethodCommon.uploadImage(bannerDto.getImage()));
         }
@@ -67,10 +65,7 @@ public class BannerServiceImpl implements BannerService{
        BannerDto bannerDto = new BannerDto();
        bannerDto.setBannerName(banner.getBannerName());
        bannerDto.setLocation(banner.getLocation());
-<<<<<<< HEAD
-       return bannerDto;
-    }
-=======
+
        bannerDto.setContent(banner.getContent());
        return bannerDto;
     }
@@ -79,5 +74,5 @@ public class BannerServiceImpl implements BannerService{
     public Banner getBannerByLocation(String location) {
         return bannerDAO.getBannerByLocation(location);
     }
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 }

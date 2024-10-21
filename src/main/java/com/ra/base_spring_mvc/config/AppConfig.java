@@ -71,11 +71,9 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
         registry.addResourceHandler("/assets/admin/**").
                 addResourceLocations("classpath:/assets/admin/");
-<<<<<<< HEAD
-        registry.addResourceHandler("/uploads/**").addResourceLocations("file:C:\\Users\\ASUS\\Desktop\\project\\ecommerce\\src\\main\\webapp\\uploads\\");
-=======
+
         registry.addResourceHandler("/uploads/**").addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\ecommerce\\src\\main\\webapp\\uploads\\");
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 
 
     }
@@ -127,11 +125,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
         dataSource.setUrl("jdbc:mysql://localhost:3307/project_module3?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
-<<<<<<< HEAD
-        dataSource.setPassword("123456");
-=======
         dataSource.setPassword("12345678");
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 
         return dataSource;
     }

@@ -100,8 +100,7 @@ public class BannerDAOImpl implements BannerDAO{
         }
         return null ;
     }
-<<<<<<< HEAD
-=======
+
 
     @Override
     public Banner getBannerByLocation(String location) {
@@ -113,5 +112,5 @@ public class BannerDAOImpl implements BannerDAO{
         }
         return null ;
     }
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 }

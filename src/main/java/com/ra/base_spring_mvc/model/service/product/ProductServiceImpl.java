@@ -1,21 +1,20 @@
 package com.ra.base_spring_mvc.model.service.product;
 
 import com.ra.base_spring_mvc.model.dao.product.ProductDAO;
-<<<<<<< HEAD
+
 import com.ra.base_spring_mvc.model.entity.Category;
 import com.ra.base_spring_mvc.model.entity.Product;
 import com.ra.base_spring_mvc.model.entity.dto.ProductDto;
-=======
+
 import com.ra.base_spring_mvc.model.entity.Product;
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 import com.ra.base_spring_mvc.model.service.file.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
+
 import java.util.Collections;
-=======
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-<<<<<<< HEAD
     public double totalSearchPages(int size,String productName) {
         return Math.ceil((double) productDAO.totalSearchElement(productName) / size);
     }
@@ -48,8 +46,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-=======
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
     public double totalPages(int size) {
         return Math.ceil((double) productDAO.totalElement() / size);
     }
@@ -65,7 +62,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-<<<<<<< HEAD
+
     public boolean createProduct(ProductDto productDto) {
 
         String image = fileService.uploadImage(productDto.getFileImageProduct());
@@ -75,14 +72,12 @@ public class ProductServiceImpl implements ProductService{
         product.setImage(image);
         product.setCategory(productDto.getCategory());
 
-=======
-    public boolean createProduct(Product product) {
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
         return productDAO.createProduct(product);
     }
 
     @Override
-<<<<<<< HEAD
+
     public boolean updateProduct(ProductDto productDto) {
         String image = null;
         if(productDto.getFileImageProduct() != null && productDto.getFileImageProduct().getSize() > 0) {
@@ -94,9 +89,7 @@ public class ProductServiceImpl implements ProductService{
         product.setDescription(productDto.getDescription());
         product.setImage(image);
         product.setCategory(productDto.getCategory());
-=======
-    public boolean updateProduct(Product product) {
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
         return productDAO.updateProduct(product);
     }
 
@@ -104,7 +97,7 @@ public class ProductServiceImpl implements ProductService{
     public void deleteProduct(int id) {
     productDAO.deleteProduct(id);
     }
-<<<<<<< HEAD
+
 
     @Override
     public Product converseProductDto(ProductDto productDto) {
@@ -129,6 +122,5 @@ public class ProductServiceImpl implements ProductService{
         productDto.setCategory(productDto.getCategory());
         return productDto;
     }
-=======
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 }

@@ -13,7 +13,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private ShoppingCartDao shoppingCartDAO;
 
     @Override
-    public List<ShoppingCart> getListShoppingCart(long id_user) {
+    public List<ShoppingCart> getListShoppingCart(int id_user) {
         return shoppingCartDAO.getListShoppingCart(id_user);
     }
 

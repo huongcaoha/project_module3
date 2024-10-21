@@ -18,9 +18,13 @@ import java.util.List;
 @RequestMapping("/banner")
 public class BannerController {
 
-
     @Autowired
-    private BannerService bannerService;
+    private final BannerService bannerService;
+
+    public BannerController(BannerService bannerService) {
+        this.bannerService = bannerService;
+    }
+
     @GetMapping
     public String index(Model model, @RequestParam(value = "page",defaultValue = "1") int page , @RequestParam(value = "size",defaultValue = "5") int size){
         List<Banner> banners = bannerService.getListPagination(page, size);
@@ -62,19 +66,13 @@ public class BannerController {
 
     @PostMapping("/edit/{id}")
     public String update(@PathVariable int id, Model model , @ModelAttribute("banner") BannerDto bannerDto , RedirectAttributes redirectAttributes){
-<<<<<<< HEAD
-        Banner newBanner = bannerService.findById(id);
-        Banner banner = bannerService.converseBannerDto(bannerDto);
-        banner.setId(id);
-        if(banner.getImage() == null){
-            banner.setImage(newBanner.getImage());
-=======
+
         Banner oldBanner = bannerService.findById(id);
         Banner banner = bannerService.converseBannerDto(bannerDto);
         banner.setId(id);
         if(banner.getImage() == null){
             banner.setImage(oldBanner.getImage());
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
         }
         if(bannerService.updateBanner(banner)){
             return "redirect:/banner";

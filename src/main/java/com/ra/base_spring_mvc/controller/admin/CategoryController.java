@@ -20,11 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-<<<<<<< HEAD
+
 @RequestMapping("/admin/category")
-=======
-@RequestMapping("/category")
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
 
 public class CategoryController {
 
@@ -52,7 +49,7 @@ public class CategoryController {
         }
 
         categoryService.addCategory(categoryDto);
-        return "redirect:/category";
+        return "redirect:/admin/category";
     }
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable int id){
@@ -65,14 +62,14 @@ public class CategoryController {
     public String update( @Valid @PathVariable int id,@ModelAttribute("category") CategoryDto categoryDto){
 
         if (categoryService.updateCategory(categoryDto)){
-            return "redirect:/category";
+            return "redirect:/admin/category";
         }
         return "admin/category/update"+id;
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id){
         categoryService.deleteCategory(id);
-        return "redirect:/category";
+        return "redirect:/admin/category";
 
     }
 }

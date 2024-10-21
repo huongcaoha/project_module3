@@ -14,8 +14,7 @@ public interface BannerService {
     List<Banner> getListPagination(int page , int size);
     Banner converseBannerDto(BannerDto bannerDto);
     BannerDto converseBanner(Banner banner);
-<<<<<<< HEAD
-=======
+
     Banner getBannerByLocation(String location);
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 }

@@ -18,12 +18,11 @@ public class SizeServiceImpl implements SizeService {
     public List<Size> findAll() {
         return sizeDAO.findAll();
     }
-<<<<<<< HEAD
+
 
     @Override
     public Size findById(int id) {
         return sizeDAO.findById(id);
     }
-=======
->>>>>>> b3fc89ae957013758c6fc607fb903f8ef0aada5c
+
 }
