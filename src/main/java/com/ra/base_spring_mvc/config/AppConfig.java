@@ -1,12 +1,13 @@
 package com.ra.base_spring_mvc.config;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+
+import org.springframework.context.annotation.*;
+
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -32,7 +33,21 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.ra")
+
+@PropertySource("classpath:config.properties")
 public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
+    @Value("${filePath}")
+    private String filePath;
+
+    @Value("${url}")
+    private String url;
+
+    @Value("${username}")
+    private String username;
+
+    @Value("${password}")
+    private String password;
+
 
     private ApplicationContext applicationContext;
 
@@ -53,8 +68,11 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets2/user/**" )
                 .addResourceLocations("classpath:/assets2/user/");
-        registry.addResourceHandler("/assets/admin/**").addResourceLocations("classpath:/assets/admin/");
-        registry.addResourceHandler("/uploads/**").addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\webapp\\uploads\\");
+
+        registry.addResourceHandler("/assets/admin/**").
+                addResourceLocations("classpath:/assets/admin/");
+        registry.addResourceHandler("/uploads/**").addResourceLocations("file:C:\\Users\\ASUS\\Desktop\\project\\ecommerce\\src\\main\\webapp\\uploads\\");
+
 
     }
 
@@ -105,6 +123,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         dataSource.setUrl("jdbc:mysql://localhost:3306/project_module3?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
+
         return dataSource;
     }
 
@@ -113,7 +132,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setPackagesToScan("com.ra.model.entity");
+        sessionFactoryBean.setPackagesToScan("com.ra.base_spring_mvc.model.entity");
         Properties properties = new Properties();
         properties.setProperty("hibernate.show_sql","true");
         properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL8Dialect");

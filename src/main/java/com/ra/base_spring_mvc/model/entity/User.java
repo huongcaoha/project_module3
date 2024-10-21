@@ -34,6 +34,9 @@ public class User
     @Email
     private String email ;
 
+
+    private String image ;
+
     @NotBlank(message = "fullname can not blank")
     private String fullName;
 

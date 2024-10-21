@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.springframework.web.multipart.MultipartFile;
+
+
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 
@@ -12,11 +15,16 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDto {
+
+    private int id;
+
     @Column(name = "categoryName" ,unique = true)
     @NotBlank(message = "category name can not blank !")
     @CategoryNameUnique
     private String categoryName ;
-    private String image ;
+
+    private MultipartFile fileImageCategory ;
+
     private String description ;
     private boolean status ;
 }

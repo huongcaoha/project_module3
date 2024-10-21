@@ -8,6 +8,8 @@ public interface CategoryDAO {
     List<Category> getListCategory();
     boolean addCategory(Category category);
     boolean updateCategory(Category category);
-    boolean deleteCategory(Category category);
+
+    void deleteCategory(int id);
+
     Category findById(int id);
 }
