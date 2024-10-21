@@ -59,11 +59,13 @@ dependencies {
   // upload file
   // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
   implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.5'
+  //lombok
+  compileOnly 'org.projectlombok:lombok:1.18.32'
+  annotationProcessor 'org.projectlombok:lombok:1.18.32'
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-  // https://mvnrepository.com/artifact/org.projectlombok/lombok
-  compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
 
 }
 

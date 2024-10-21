@@ -2,9 +2,7 @@ package com.ra.base_spring_mvc.model.entity;
 
 import com.ra.base_spring_mvc.validator.user.PhoneUnique;
 import com.ra.base_spring_mvc.validator.user.UsernameUnique;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -15,7 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -33,6 +32,9 @@ public class User
 
     @Email
     private String email ;
+
+
+    private String image ;
 
     @NotBlank(message = "fullname can not blank")
     private String fullName;

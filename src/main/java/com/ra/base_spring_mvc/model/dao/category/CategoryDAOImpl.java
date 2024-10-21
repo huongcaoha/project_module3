@@ -60,19 +60,21 @@ public class CategoryDAOImpl implements CategoryDAO{
     }
 
     @Override
-    public boolean deleteCategory(Category category) {
+
+    public void deleteCategory(int id) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()){
             transaction = session.beginTransaction();
-            session.delete(category);
+            session.delete(findById(id));
             transaction.commit();
-            return true ;
+
+
         }catch (Exception e){
             if(transaction != null){
                 transaction.rollback();
             }
             e.printStackTrace();
-            return false ;
+
         }
     }
 
