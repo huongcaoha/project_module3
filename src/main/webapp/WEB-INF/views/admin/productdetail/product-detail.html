@@ -83,14 +83,13 @@
                             <tr th:each="pd,loop : ${productDetailsDto}">
                                 <td  th:text="${ loop.count}"></td>
                                 <td th:text="${pd.product.productName}"> </td>
-                                <td > <img th:src="'/uploads/'+${pd.image}" width="50px" height="50px"></td>
+                                <td > <img th:if="${pd.image != null}" th:src="${pd.image}" width="50px" height="50px"></td>
                                 <td th:text="${pd.unit_price}"></td>
                                 <td th:text="${pd.stock_quantity}"></td>
                                 <td th:text="${pd.color.colorName}"></td>
                                 <td th:text="${pd.size.sizeName}"></td>
                                 <td>
-                                    <a class="btn btn-warning" th:href="@{'product/edit/'+${pd.id}}">Edit</a>
-                                    <a class="btn btn-danger" th:href="@{'product/delete/'+${pd.id}}">Delete</a>
+                                    <a class="btn btn-danger" th:href="@{'/admin/product-detail/delete/' + ${pd.id} + '?productId=' + ${product.id}}">Delete</a>
                                 </td>
                             </tr>
 

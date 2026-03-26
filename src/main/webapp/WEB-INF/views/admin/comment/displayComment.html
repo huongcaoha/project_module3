@@ -39,7 +39,7 @@
                 <tbody>
                 <tr th:each="comment,loop : ${comments}">
                     <td scope="row" th:text="${((page -1 )* size ) + loop.count}"></td>
-                    <td><img th:src="@{'/uploads/' + ${comment.user.image}}" alt="image" style="width: 50px ; height: 50px" ></td>
+                    <td><img th:if="${comment.user.image != null}" th:src="${comment.user.image}" alt="image" style="width: 50px ; height: 50px" ></td>
                     <td th:text="${comment.user.username}"></td>
                     <td th:text="${comment.content}"></td>
                     <td th:text="${comment.status ? 'approve' : 'not approve'}"></td>

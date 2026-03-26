@@ -81,8 +81,8 @@ public class ProductDetailController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
-        productService.deleteProduct(id);
-        return "redirect:/product";
+    public String delete(@PathVariable int id, @RequestParam("productId") int productId) {
+        productDetailService.deleteProduct(id);
+        return "redirect:/admin/product-detail/" + productId;
     }
 }

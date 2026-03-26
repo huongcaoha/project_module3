@@ -1,5 +1,6 @@
 package com.ra.base_spring_mvc.config;
 
+import com.cloudinary.Cloudinary;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -27,7 +28,9 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 
 @Configuration
@@ -71,11 +74,6 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
         registry.addResourceHandler("/assets/admin/**").
                 addResourceLocations("classpath:/assets/admin/");
-
-        registry.addResourceHandler("/uploads/**").addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\ecommerce\\src\\main\\webapp\\uploads\\");
-
-
-
     }
 
     @Override
@@ -123,7 +121,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
-        dataSource.setUrl("jdbc:mysql://localhost:3307/project_module3?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/project_module3?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("12345678");
 
@@ -167,6 +165,15 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         final SessionLocaleResolver localeResolver = new SessionLocaleResolver();
         localeResolver.setDefaultLocale(new Locale("en"));
         return localeResolver;
+    }
+
+    @Bean
+    public Cloudinary cloudinary(){
+        Map<String, String> config = new HashMap<>();
+        config.put("cloud_name", "dudtrotnp");
+        config.put("api_key", "881334265216115");
+        config.put("api_secret", "SQxk7JNo0BZyF26LXGOvzPxU0oI");
+        return new Cloudinary(config);
     }
 //    @Bean
 //    public MessageSource messageSource(){

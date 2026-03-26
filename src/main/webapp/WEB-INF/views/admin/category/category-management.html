@@ -89,7 +89,7 @@
                 <td th:text="${loot.count}"></td>
                 <td th:text="${c.categoryName}"></td>
                 <td th:text="${c.description}"></td>
-                <td ><img th:src="'/uploads/'+${c.image}" width="50px" height="50px"></td>
+                <td ><img th:if="${c.image != null}" th:src="${c.image}" width="50px" height="50px"></td>
                 <td th:text="${c.status ? 'Active':'Inactive'}"></td>
                 <td>
 

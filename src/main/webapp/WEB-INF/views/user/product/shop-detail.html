@@ -58,7 +58,7 @@
 
                                 <div class="product-thumb-slider">
                                     <div class="product-img">
-                                        <img th:src="'/uploads/'+${product.image}" alt="Product">
+                                        <img th:if="${product.image != null}" th:src="${product.image}" alt="Product">
                                     </div>
 
                                 </div>

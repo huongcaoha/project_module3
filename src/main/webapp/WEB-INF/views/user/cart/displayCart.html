@@ -82,7 +82,7 @@
                     <td>
                         <div class="product-thumb-item">
                             <div class="product-img">
-                                <img th:src="@{'/uploads/' + ${shoppingCart.productDetail.image}}" alt="Product Thumbnail">
+                                <img th:if="${shoppingCart.productDetail.image != null}" th:src="${shoppingCart.productDetail.image}" alt="Product Thumbnail">
                             </div>
                             <div class="product-info">
                                 <h4 class="title"><a href="shop-details.html" th:text="${shoppingCart.productDetail.product.productName}"></a></h4>

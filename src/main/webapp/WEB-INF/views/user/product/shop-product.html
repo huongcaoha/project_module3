@@ -328,7 +328,7 @@
                                 <!--=== Product Item  ===-->
                                 <div class="product-item style-one mb-40" th:each="p :${products} ">
                                     <div class="product-thumbnail" >
-                                        <img th:src="@{'/uploads/'+${p.image}}" alt="Products">
+                                        <img th:if="${p.image != null}" th:src="${p.image}" alt="Products">
                                         <div class="discount">10% Off</div>
 
                                         <div class="cart-button">
