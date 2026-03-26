@@ -1,29 +1,29 @@
 package com.ra.base_spring_mvc.common;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
+@Component
 public class MethodCommon {
-    public static String uploadImage(MultipartFile file) {
-        if(file.getSize() > 0){
-            String filePath = "C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\ecommerce\\src\\main\\webapp\\uploads\\" + file.getOriginalFilename() ;
-            File fl = new File(filePath);
-            if(!fl.exists()){
-                try {
-                    fl.createNewFile();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+
+    @Autowired
+    private Cloudinary cloudinary; // Bỏ static ở đây
+
+    public String uploadImage(MultipartFile file) { // Bỏ static ở đây
+        if(file != null && !file.isEmpty()){
             try {
-                file.transferTo(fl);
+                Map upload = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+                return upload.get("url").toString();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Upload failed: " + e.getMessage());
             }
-            return file.getOriginalFilename();
         }
-        return null ;
+        return null;
     }
 }

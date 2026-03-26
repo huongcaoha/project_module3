@@ -15,6 +15,8 @@ import java.util.List;
 @Service
 public class BannerServiceImpl implements BannerService{
     @Autowired
+    private MethodCommon methodCommon ;
+    @Autowired
     private BannerDAO bannerDAO;
     @Override
     public List<Banner> getListBanner() {
@@ -55,7 +57,7 @@ public class BannerServiceImpl implements BannerService{
         banner.setContent(bannerDto.getContent());
 
         if(bannerDto.getImage().getSize() > 0){
-            banner.setImage(MethodCommon.uploadImage(bannerDto.getImage()));
+            banner.setImage(methodCommon.uploadImage(bannerDto.getImage()));
         }
         return banner ;
     }

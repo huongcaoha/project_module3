@@ -35,9 +35,10 @@ public class HomeController {
 
     @GetMapping
     public String indexhome(HttpServletRequest request){
-        String bannerTop = "/uploads/" + bannerService.getBannerByLocation("top").getImage();
-        String bannerLeft = "/uploads/" + bannerService.getBannerByLocation("left").getImage();
-        String bannerRight = "/uploads/" + bannerService.getBannerByLocation("right").getImage();
+        String bannerTop = bannerService.getBannerByLocation("top").getImage();
+
+        String bannerLeft = bannerService.getBannerByLocation("left").getImage();
+        String bannerRight =  bannerService.getBannerByLocation("right").getImage();
        HttpSession session = request.getSession();
         User user = new User();
         if(session.getAttribute("user") != null){
